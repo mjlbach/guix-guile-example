@@ -1,0 +1,13 @@
+# Use GCC, if you have it installed
+CC=@CC@
+
+# Tell the C compiler where to find <libguile.h>
+CFLAGS=@GUILE_CFLAGS@
+
+LIBS=@GUILE_LIBS@
+
+simple-guile: simple-guile.o
+	${CC} simple-guile.o ${LIBS} -o simple-guile
+
+simple-guile.o: simple-guile.c
+	${CC} simple-guile.c ${CFLAGS} simple-guile.c
